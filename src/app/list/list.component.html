@@ -1,0 +1,40 @@
+<app-filter (filterChange)="applyFilters($event)"></app-filter>
+<table class="table table-striped table-bordered mt-3">
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>RAM</th>
+      <th>HDD</th>
+      <th>Location</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="paginationData.length === 0">
+      <td colspan="5" class="text-center">No data available</td>
+    </tr>
+    <tr *ngFor="let item of paginationData">
+      <td>{{ item.Model }}</td>
+      <td>{{ item.RAM }}</td>
+      <td>{{ item.HDD }}</td>
+      <td>{{ item.Location }}</td>
+      <td>{{ item.Price }}</td>
+    </tr>
+  </tbody>
+</table>
+<nav *ngIf="totalPages > 1">
+  <ul class="pagination justify-content-center">
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <button class="page-link" (click)="changePage(1)" [disabled]="currentPage === 1">First</button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <button class="page-link" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <button class="page-link" (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <button class="page-link" (click)="changePage(totalPages)" [disabled]="currentPage === totalPages">Last</button>
+    </li>
+  </ul>
+</nav>

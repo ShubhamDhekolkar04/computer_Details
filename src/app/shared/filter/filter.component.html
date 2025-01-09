@@ -1,0 +1,38 @@
+<div class="m-3">
+    <div class="d-flex justify-content-center align-items-center gap-5">
+        <h3 class="m-0 mt-2">Filters:-</h3>
+        <div class="mb-3">
+            <label for="ramDropdown" class="form-label">RAM:</label>
+            <select class="form-select" id="ramDropdown" [(ngModel)]="selectedRam" (change)="updateFilterData()">
+                <option value="">Select RAM</option>
+                <option *ngFor="let ramOption of ramOptions" [value]="ramOption">
+                    {{ ramOption }}
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="harddiskSelect" class="form-label">Harddisk Type:</label>
+            <select class="form-select" id="harddiskSelect" [(ngModel)]="filters.hddType" (change)="updateFilterData()">
+                <option value="">Select Harddisk Type</option>
+                <option *ngFor="let hddType of hddOptions" [value]="hddType">
+                    {{ hddType }}
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="locationSelect" class="form-label">Location:</label>
+            <select class="form-select" id="locationSelect" [(ngModel)]="filters.location" (change)="updateFilterData()">
+                <option value="">Select Location</option>
+                <option *ngFor="let location of locationOptions" [value]="location">
+                    {{ location }}
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="storageSlider" class="form-label">Storage:</label>
+            <input type="range" class="form-range" id="storageSlider" [min]="0" [max]="storageOptions.length - 1"
+                step="1" [(ngModel)]="selectedStorageIndex" (input)="updateFilterData()" />
+            <span>{{ storageOptions[selectedStorageIndex] }}</span>
+        </div>
+    </div>
+</div>

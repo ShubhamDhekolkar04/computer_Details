@@ -1,0 +1,27 @@
+.header {
+    height: 8vh;
+    width: 100%;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    color:#fff;
+    background:#fe0000;
+    display: flex;
+    align-items: center;
+}
+
+.label{
+    font-family: 'Roboto';
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28.13px;
+    text-align: left;
+    text-decoration-skip-ink: none;
+
+}
+nav a{
+    padding: 1rem;
+    color: inherit;
+    cursor: pointer;
+}
+label:visited{
+    color: #fe0000;
+}
